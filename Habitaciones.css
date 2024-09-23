@@ -1,0 +1,434 @@
+.body{
+    overflow-x: hidden;
+    background-color: #C1E1A7;
+    font-family: Arial,sans-serif;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+main{
+    margin-top: 50px;
+    margin-left: -8px;
+    background-color: #C1E1A7;
+    margin-top: 0px;
+    padding-top: 50px;
+    margin-right: -8px;
+    margin-bottom: -30px;
+    font-family: Arial,sans-serif;
+}
+
+header {
+    background-color: #1a4a5a;
+    color: white;
+    padding: 5px 10px;
+    text-align: right;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 500;
+    display: flex;
+    justify-content: space-between;
+    align-items: right;
+    font-family: Arial,sans-serif;
+}
+main {
+    padding: 20px;
+    padding-top: 120px; /* espacio para el header */
+    flex-grow: 1;
+    transition: margin-left 0.3s ease;
+    padding-bottom: 238px;
+    margin-left: -20px;
+    padding-left: 20px;
+}
+.add-habitacion-btn{
+    padding: 10px 20px;
+    background-color: #1a4a5a;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.add-habitacion-btn:hover{
+    color: none;
+}
+main.shifted {
+    margin-left: 250px;
+}
+.toggle-btn {
+    font-size: 20px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    margin-left: 10px;
+}
+.toggle-btn:hover{
+    background: none;
+    color: white;
+}
+.sidebar {
+    width: 258px;
+    background-color: #1a4a5a;
+    padding-top: 120px; /* espacio para el header */
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    align-items: right;
+}
+
+.sidebar.active {
+    transform: translateX(0);
+}
+
+.sidebar a {
+    color: white;
+    text-decoration: none;
+    padding: 15px 20px;
+    display: block;
+    margin: 5px 0;
+    background-color: #1a4a5a;
+    border-radius: 2px;
+    transition: background-color 0.3s;
+    text-align: left;
+}
+
+.sidebar a:hover {
+    background-color: #0e2c40;
+}
+.habitacion-controls{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table th, table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+table th {
+    background-color: #f4f4f4;
+}
+
+table td {
+    background-color: #fff;
+}
+
+table .operations i {
+    cursor: pointer;
+    margin: 0 5px;
+    color: #333;
+}
+header .profile-menu {
+    display: flex;
+    gap: 10px;
+    margin-left: 900px; 
+    margin-right: 1000px;
+}
+
+header .profile-menu button {
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 30px;
+}
+
+header .profile-menu button:hover {
+    text-decoration: underline;
+}
+
+header .dashboard-title {
+    font-size: 1.5em;
+}
+.search-bar {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar input {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px 0 0 3px;
+    outline: none;
+}
+
+.search-bar button {
+    padding: 5px;
+    background-color: #1a4a5a;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 0 3px 3px 0;
+}
+.content-section {
+    display: none;
+}
+
+.content-section.active {
+    display: block;
+}
+/* Estilos para el botón de perfil y el menú desplegable */
+.profile-menu {
+    position: relative;
+    display: inline-block;
+}
+
+.profile-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5em;
+    color: #fff; 
+    margin-right: 80px; /* Ajusta el margen derecho para mover el perfil más a la derecha */
+}
+
+.profile-dropdown {
+    display: none;
+    position: absolute;
+    top: 90%;
+    right: 32px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 4 2px 8px rgba(0,0,0,0.1);
+    z-index: 1000;
+    min-width: 150px; /* Ajusta el ancho mínimo si es necesario */
+}
+
+.profile-dropdown a {
+    display: flex;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+    border-bottom: 1px solid #ddd; /* Línea divisoria entre los elementos */
+}
+
+.profile-dropdown a:last-child {
+    border-bottom: none; /* Elimina la línea divisoria del último elemento */
+}
+
+.profile-dropdown a:hover {
+    background-color: #f0f0f0;
+}
+
+.profile-menu:hover .profile-dropdown {
+    display: block; /* Muestra el menú cuando se pasa el cursor sobre el perfil */
+}
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+}
+
+.switch input {
+    display: none;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 20px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 14px;
+    width: 14px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #1a4a5a;
+}
+
+input:checked + .slider:before {
+    transform: translateX(20px);
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+.modal-content h2 {
+    margin-top: 0;
+}
+.modal-content form {
+    display: flex;
+    flex-direction: column;
+}
+/* Overlay del modal de habitación */
+.modal-habitacion-overlay {
+    display: none; /* Oculto por defecto */
+    position: fixed; 
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+}
+
+/* Contenido del modal de habitación */
+.modal-habitacion-content {
+    background-color: #fefefe;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 600px;
+    max-height: 80%; /* Limita la altura del modal */
+    overflow-y: auto; /* Agrega scroll si el contenido es mayor que el modal */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin: 10% auto;
+    font-family: Arial,sans-serif;
+}
+.modal-overlay {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+    justify-content: center;
+    align-items: center;
+}
+.modal-content label {
+    margin-top: 10px;
+}
+.modal-content input, .modal-content select {
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+/* Contenido de los modales */
+.modal-content {
+    background-color: #fefefe;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 600px;
+    max-height: 80%; /* Limita la altura del modal */
+    overflow-y: auto; /* Agrega scroll si el contenido es mayor que el modal */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin: 10% auto;
+    font-family: Arial,sans-serif;
+}
+/* Imagen dentro del modal de habitación */
+.modal-habitacion-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Botón de cierre del modal de habitación */
+.modal-habitacion-close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+    cursor: pointer;
+}
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+    cursor: pointer;
+}
+.modal-content button {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #1a4a5a;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.modal-content button:hover {
+    background-color: #1a4a5a;
+}
+
+/* Botón para editar habitación */
+.btn-edit-habitacion, .btn-delete-habitacion {
+    background-color: #1a4a5a;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.btn-edit-habitacion:hover, .btn-delete-habitacion:hover {
+    background-color: #0e2c40;
+}
+
+/* Botones dentro del modal de eliminar */
+button{
+    padding: 10px 20px;
+    background-color: #1a4a5a;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+button:hover{
+    background-color:#19afaf;
+    color: black
+}
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}

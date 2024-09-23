@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Habitaciones.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+            <button class="toggle-btn" onclick="toggleSidebar()">&#9776;</button>
+            <h1>Addventure</h1>
+            <div class="profile-menu">
+                <button class="profile-btn" onclick="toggleProfileMenu()">
+                    <i class="fas fa-user-circle"></i>
+                </button>
+                <div class="profile-dropdown" id="profileDropdown">
+                    <a href="#myProfile">Mi perfil</a>
+                    <a href="#logout" onclick="logout()">Cerrar sesión</a>
+                </div>
+            </div>
+    </header>
+        <div class="sidebar" id="sidebar">
+            <a href="#roles" onclick="showSection('roles')"><i class="fa-solid fa-sitemap"></i>&nbsp;Roles</a>
+            <a href="#users" onclick="showSection('users')"><i class="fa-solid fa-person"></i>&nbsp;&nbsp;Usuarios</a>
+            <a href="Habitacion.html" onclick="showSection('habitacion')"><i class="fa-solid fa-bed " style="margin-right: 8px;"></i>Habitaciones</a>
+            <a href="Tipodehabitacion.html" onclick="showSection('tipodehabitacion')"><i class="fa-solid fa-person-booth " style="margin-right: 8px;"></i>Tipo de Habitacion</a>
+            <a href="Inmuebles.html" onclick="showSection('inmuebles')"><i class="fa-solid fa-chair " style="margin-right: 8px;"></i>Inmuebles</a>
+            <a href="Servicios.html" onclick="showSection('servicios')"><i class="fa-solid fa-person-swimming" style="margin-right: 8px;"></i>Servicios</a>
+            <a href="#index" onclick="showSection('reserva')"><i class="fa-solid fa-house-user">&nbsp;</i>Reserva</a>
+            <a href="#abono" onclick="showSection('abono')"><i class="fa-solid fa-money-check-dollar">&nbsp;</i>Abono</a>
+            <a href="#paquetes" onclick="showSection('paquetes')"><i class="fa-solid fa-boxes-stacked"></i> Paquetes</a>
+            <a href="#medicion" onclick="showSection('medicion')"><i class="fa-solid fa-chart-line"></i>&nbsp;Medicion</a>
+        </div>
+    <main>
+        <section class="content-section active">
+            <h2>Inmuebles</h2>
+            <div class="habitacion-controls">
+                <div class="search-bar">
+                    <input type="text" placeholder="Buscar Inmueble...">
+                    <button style="margin-left: 1px;margin-top: 9px;"><i class="fas fa-search"></i></button>
+                </div>
+                <button class="add-habitacion-btn" onclick="openModal('modal-agregar-habitacion')"<i class="fas fa-plus-circle"</i> Nuevo Inmueble</button>
+            </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>IDInmueble</th>
+                    <th>Nombre de Inmueble</th>
+                    <th>Precio</th>
+                    <th>Cantidad</th>
+                    <th>Estado</th>
+                    <th>Operaciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>01</td>
+                    <td>Cama cómoda</td>
+                    <td>70.000$</td>
+                    <td>1</td>
+                    <td >Activo</td>
+                    <td class="operations">
+                        <label class="switch">
+                            <input type="checkbox" id="statusCheckbox1" checked>
+                            <span class="slider round"></span>
+                        </label>
+                        <i class="fa-solid fa-image" onclick="openModal('modal-habitacion')"></i>
+                        <i class="fas fa-edit" onclick="openModal('modal-editar-habitacion')"></i>
+                        <i class="fas fa-trash" onclick="openModal('modal-eliminar-habitacion')"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td>02</td>
+                    <td>Lámparas decorativas</td>
+                    <td>5.000$</td>
+                    <td>5</td>
+                    <td >Activo</td>
+                    <td class="operations">
+                        <label class="switch">
+                            <input type="checkbox" id="statusCheckbox1" checked>
+                            <span class="slider round"></span>
+                        </label>
+                        <i class="fa-solid fa-image" onclick="openModal('modal-habitacion')"></i>
+                        <i class="fas fa-edit" onclick="openModal('modal-editar-habitacion')"></i>
+                        <i class="fas fa-trash" onclick="openModal('modal-eliminar-habitacion')"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td>03</td>
+                    <td>Cojines y almohadones decorativos</td>
+                    <td>4.000$</td>
+                    <td>4</td>
+                    <td >Activo</td>
+                    <td class="operations">
+                        <label class="switch">
+                            <input type="checkbox" id="statusCheckbox1" checked>
+                            <span class="slider round"></span>
+                        </label>
+                        <i class="fa-solid fa-image" onclick="openModal('modal-habitacion')"></i>
+                        <i class="fas fa-edit" onclick="openModal('modal-editar-habitacion')"></i>
+                        <i class="fas fa-trash" onclick="openModal('modal-eliminar-habitacion')"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td>04</td>
+                    <td>Armario o perchero</td>
+                    <td>70.000$</td>
+                    <td>2</td>
+                    <td id="status1">Activo</td>
+                    <td class="operations">
+                        <label class="switch">
+                            <input type="checkbox" id="statusCheckbox1" checked>
+                            <span class="slider round"></span>
+                        </label>
+                        <i class="fa-solid fa-image" onclick="openModal('modal-habitacion')"></i>
+                        <i class="fas fa-edit" onclick="openModal('modal-editar-habitacion')"></i>
+                        <i class="fas fa-trash" onclick="openModal('modal-eliminar-habitacion')"></i>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</main>
+<div id="modal-habitacion" class="modal-habitacion-overlay">
+    <div class="modal-habitacion-content">
+        <span class="modal-habitacion-close" onclick="closeModal('modal-habitacion')">&times;</span><br>
+        <img src="https://img.freepik.com/fotos-premium/colchon-comodo-tienda-campana-lujo_1015874-1980.jpg" alt="Imagen de Habitación" class="modal-habitacion-image">
+    </div>
+</div>
+<div id="modal-editar-habitacion" class="modal-overlay">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('modal-editar-habitacion')">&times;</span>
+        <h2>Editar Inmueble</h2>
+        <!-- Aquí puedes agregar un formulario para editar los detalles de la habitación -->
+        <form>
+            <label for="estadoHabitacion">Estado del Inmueble:</label>
+            <select id="estadoHabitacion" >
+                <option value="Disponible">Disponible</option>
+                <option value="Ocupada">Ocupada</option>
+                <option value="Mantenimiento">Mantenimiento</option>
+            </select><br>
+            <label for="">Ingrese la cantidad del Inmueble</label><br>
+            <input type="text"required><br>
+            <label for="imagenHabitacion">Imagen del Inmueble:</label>
+            <input type="file" id="imagenHabitacion" class="input-imagen" required><br><br><br>
+            <label for="descripcionHabitacion">Descripción:</label><br>
+            <textarea id="descripcionHabitacion" rows="4" placeholder="Descripción de la habitación..." required></textarea><br><br>
+            <button type="button" >Cancelar</button>
+            <button type="submit" >Guardar Cambios</button>
+        </form>
+    </div>
+</div>
+
+<!-- Modal para eliminar habitación -->
+<div id="modal-eliminar-habitacion" class="modal-overlay">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('modal-eliminar-habitacion')">&times;</span>
+        <h2>Eliminar Inmueble</h2>
+        <p>¿Estás seguro de que deseas eliminar este Inmueble</p>
+        <button>Eliminar</button>
+        <button onclick="closeModal('modal-eliminar-habitacion')">Cancelar</button>
+    </div>
+</div>
+<div id="modal-agregar-habitacion" class="modal-overlay">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('modal-agregar-habitacion')">&times;</span>
+        <h2>Agregar Nuevo Inmueble</h2>
+        <form>
+            <label for="">Ingrese el nombre del Inmueble</label><br>
+                <input type="text" placeholder="Ejem: Habitacion 1" required><br>
+                <label for="">Inserte una imagen del Inmueble</label><br>
+                <input type="file" class="imagen" required><br>
+                <label for="">Ingrese la cantidad del Inmueble</label><br>
+                <input type="text"required><br>
+                <label for="">Ingrese el precio del Inmueble</label><br>
+                <input type="number"required><br>
+                <label for="estadoHabitacion">Estado del Inmueble:</label>
+                <select id="estadoHabitacion" >
+                <option value="Disponible">Disponible</option>
+                <option value="Ocupada">Ocupada</option>
+                <option value="Mantenimiento">Mantenimiento</option>
+                </select><br>
+                <label for="">Agregue una Descripcion</label><br>
+                <textarea name="" id="" required></textarea><br>
+                <button type="button">Cancelar</button>
+                <button type="submit">Siguiente</button>
+        </form>
+    </div>
+</div>
+    <script src="inmuebles.js"></script>
+</body>
+</html>

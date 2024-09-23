@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Habitaciones.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+            <button class="toggle-btn" onclick="toggleSidebar()">&#9776;</button>
+            <h1>Addventure</h1>
+            <div class="profile-menu">
+                <button class="profile-btn" onclick="toggleProfileMenu()">
+                    <i class="fas fa-user-circle"></i>
+                </button>
+                <div class="profile-dropdown" id="profileDropdown">
+                    <a href="#myProfile">Mi perfil</a>
+                    <a href="#logout" onclick="logout()">Cerrar sesión</a>
+                </div>
+            </div>
+    </header>
+        <div class="sidebar" id="sidebar">
+            <a href="#roles" onclick="showSection('roles')"><i class="fa-solid fa-sitemap"></i>&nbsp;Roles</a>
+            <a href="#users" onclick="showSection('users')"><i class="fa-solid fa-person"></i>&nbsp;&nbsp;Usuarios</a>
+            <a href="Habitacion.html" onclick="showSection('habitacion')"><i class="fa-solid fa-bed " style="margin-right: 8px;"></i>Habitaciones</a>
+            <a href="Tipodehabitacion.html" onclick="showSection('tipodehabitacion')"><i class="fa-solid fa-person-booth " style="margin-right: 8px;"></i>Tipo de Habitacion</a>
+            <a href="Inmuebles.html" onclick="showSection('inmuebles')"><i class="fa-solid fa-chair " style="margin-right: 8px;"></i>Inmuebles</a>
+            <a href="Servicios.html" onclick="showSection('servicios')"><i class="fa-solid fa-person-swimming" style="margin-right: 8px;"></i>Servicios</a>
+            <a href="#index" onclick="showSection('reserva')"><i class="fa-solid fa-house-user">&nbsp;</i>Reserva</a>
+            <a href="#abono" onclick="showSection('abono')"><i class="fa-solid fa-money-check-dollar">&nbsp;</i>Abono</a>
+            <a href="#paquetes" onclick="showSection('paquetes')"><i class="fa-solid fa-boxes-stacked"></i> Paquetes</a>
+            <a href="#medicion" onclick="showSection('medicion')"><i class="fa-solid fa-chart-line"></i>&nbsp;Medicion</a>
+        </div>
+    <main>
+        <section class="content-section active">
+            <h2>Habitaciones</h2>
+            <div class="habitacion-controls">
+                <div class="search-bar">
+                    <input type="text" placeholder="Buscar habitacion...">
+                    <button style="margin-left: 1px;margin-top: 9px;"><i class="fas fa-search"></i></button>
+                </div>
+                <button class="add-habitacion-btn" onclick="openModal('modal-agregar-habitacion')"<i class="fas fa-plus-circle"</i> Nueva Habitacion</button>
+            </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>IDHabitacion</th>
+                    <th>Nombre Habitacion</th>
+                    <th>Tipo de Habitacion</th>
+                    <th>Precio</th>
+                    <th>Estado</th>
+                    <th>Operaciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>101</td>
+                    <td>Habitacion 1</td>
+                    <td>Habitacion Doble</td>
+                    <td>300.000$</td>
+                    <td >Activo</td>
+                    <td class="operations">
+                        <label class="switch">
+                            <input type="checkbox" id="statusCheckbox1" checked>
+                            <span class="slider round"></span>
+                        </label>
+                        <i class="fa-solid fa-image" onclick="openModal('modal-habitacion')"></i>
+                        <i class="fas fa-edit" onclick="openModal('modal-editar-habitacion')"></i>
+                        <i class="fas fa-trash" onclick="openModal('modal-eliminar-habitacion')"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td>202</td>
+                    <td>Habitacion 2</td>
+                    <td>Habitacion Estandar</td>
+                    <td>150.000$</td>
+                    <td >Activo</td>
+                    <td class="operations">
+                        <label class="switch">
+                            <input type="checkbox" id="statusCheckbox1" checked>
+                            <span class="slider round"></span>
+                        </label>
+                        <i class="fa-solid fa-image" onclick="openModal('modal-habitacion')"></i>
+                        <i class="fas fa-edit" onclick="openModal('modal-editar-habitacion')"></i>
+                        <i class="fas fa-trash" onclick="openModal('modal-eliminar-habitacion')"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td>303</td>
+                    <td>Habitacion 3</td>
+                    <td>Habitacion de Lujo</td>
+                    <td>400.000$</td>
+                    <td >Activo</td>
+                    <td class="operations">
+                        <label class="switch">
+                            <input type="checkbox" id="statusCheckbox1" checked>
+                            <span class="slider round"></span>
+                        </label>
+                        <i class="fa-solid fa-image" onclick="openModal('modal-habitacion')"></i>
+                        <i class="fas fa-edit" onclick="openModal('modal-editar-habitacion')"></i>
+                        <i class="fas fa-trash" onclick="openModal('modal-eliminar-habitacion')"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td>404</td>
+                    <td>Habitacion 4</td>
+                    <td>Habitacion Estandar</td>
+                    <td>150.000$</td>
+                    <td id="status1">Activo</td>
+                    <td class="operations">
+                        <label class="switch">
+                            <input type="checkbox" id="statusCheckbox1" checked>
+                            <span class="slider round"></span>
+                        </label>
+                        <i class="fa-solid fa-image" onclick="openModal('modal-habitacion')"></i>
+                        <i class="fas fa-edit" onclick="openModal('modal-editar-habitacion')"></i>
+                        <i class="fas fa-trash" onclick="openModal('modal-eliminar-habitacion')"></i>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</main>
+<div id="modal-habitacion" class="modal-habitacion-overlay">
+    <div class="modal-habitacion-content">
+        <span class="modal-habitacion-close" onclick="closeModal('modal-habitacion')">&times;</span><br>
+        <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/506892423.jpg?k=087f0d56724be6830c51dcba68ed08d8394c46cf80601167d11c1e7101bff954&o=&hp=1" alt="Imagen de Habitación" class="modal-habitacion-image">
+        <h2>Inmuebles de la habitacion</h2>  
+            <ul>
+                    <li>Cama cómoda</li>
+                    <li>Ropa de cama de alta calidad</li>
+                    <li>Mesitas de noche</li>
+                    <li>Lámparas decorativas</li>
+                    <li>Ducha privada</li>
+                    <li>Toallas y albornoces de lujo</li>
+                    <li>Espejo de cuerpo entero</li>
+                    <li>Armario o perchero</li>
+                    <li>Alfombra o tapete decorativo</li>
+                    <li>Escritorio (con sillas)</li>
+                    <li>Cojines y almohadones decorativos</li>
+                    <li>Área de estar (con sillones)</li>
+                    <li>Calefacción</li>
+                    <li>Iluminación ambiental </li>
+                    <li>Conexión eléctrica</li>
+            </ul>
+            <br>
+            <h2>Tipo de habitacion</h2> 
+            <h3>Habitacion Doble</h3>
+            <p>
+            Amplia y luminosa, esta habitación ofrece dos camas individuales o una cama matrimonial, ideal para compartir. Incluye Wi-Fi gratuito, aire acondicionado, y baño privado. Perfecta para parejas o amigos que buscan confort en su estadía.</p>
+            <br>
+            <h2>Servicios</h2>
+                <ul>
+                    <li>Excursiones de senderismo</li>
+                    <li>Tours de kayak</li>
+                    <li>Bungee jumping</li>
+                    <li>Escalada en roca</li>
+                    <li>Tours en bicicleta de montaña</li>
+                    <li>Rafting</li>
+                    <li>Tirolina</li>
+                    <li>Paddleboard</li>
+                    <li>Rutas a caballo</li>
+                    <li>Pesca deportiva</li>
+                </ul>
+    </div>
+</div>
+<div id="modal-editar-habitacion" class="modal-overlay">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('modal-editar-habitacion')">&times;</span>
+        <h2>Editar Habitación</h2>
+        <!-- Aquí puedes agregar un formulario para editar los detalles de la habitación -->
+        <form>
+            <label for="">Seleccione el numero de habitacion:</label>
+            <select name="" id="roomNumber" required>
+                <option value="1">Habitacion 1</option>
+                <option value="2">Habitacion 2</option>
+                <option value="3">Habitacion 3</option>
+                <option value="4">Habitacion 4</option>
+                <option value="5">Habitacion 5</option>
+                <option value="6">Habitacion 6</option>
+                <option value="7">Habitacion 7</option>
+                <option value="8">Habitacion 8</option>
+                <option value="9">Habitacion 9</option>
+                <option value="10">Habitacion 10</option>
+                <option value="11">Habitacion 11</option>
+                <option value="12">Habitacion 12</option>
+            </select><br>
+            <label for="estadoHabitacion">Estado de la Habitación:</label>
+            <select id="estadoHabitacion" >
+                <option value="Disponible">Disponible</option>
+                <option value="Ocupada">Ocupada</option>
+                <option value="Mantenimiento">Mantenimiento</option>
+            </select><br>
+            <label for="pisoHabitacion">Piso:</label>
+            <select id="pisoHabitacion" >
+                <option value="1">Piso 1</option>
+                <option value="2">Piso 2</option>
+                <option value="3">Piso 3</option>
+                <option value="4">Piso 4</option>
+            </select><br>
+            <label for="imagenHabitacion">Imagen de la Habitación:</label>
+            <input type="file" id="imagenHabitacion" class="input-imagen" required><br><br><br>
+            <label for="descripcionHabitacion">Descripción:</label><br>
+            <textarea id="descripcionHabitacion" rows="4" placeholder="Descripción de la habitación..." required></textarea><br>
+            <label for="tipoHabitacion">Tipo de Habitación:</label>
+            <select id="tipoHabitacion" >
+                <option value="lujo">Habitación de lujo</option>
+                <option value="doble">Habitación doble</option>
+                <option value="estandar">Habitación estándar</option>
+            </select><br><br>
+            <button type="button" >Cancelar</button>
+            <button type="submit" >Guardar Cambios</button>
+        </form>
+    </div>
+</div>
+
+<!-- Modal para eliminar habitación -->
+<div id="modal-eliminar-habitacion" class="modal-overlay">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('modal-eliminar-habitacion')">&times;</span>
+        <h2>Eliminar Habitación</h2>
+        <p>¿Estás seguro de que deseas eliminar esta habitación?</p>
+        <button>Eliminar</button>
+        <button onclick="closeModal('modal-eliminar-habitacion')">Cancelar</button>
+    </div>
+</div>
+<div id="modal-agregar-habitacion" class="modal-overlay">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('modal-agregar-habitacion')">&times;</span><br>
+        <h2>Agregar Nueva Habitación</h2>
+        <!-- Formulario para agregar una nueva habitación -->
+        <form>
+            <label for="">Ingrese el numero de habitacion</label><br>
+                <input type="text" placeholder="Ejem: Habitacion 1" required><br>
+                <label for="">Inserte una imagen de la habitacion</label><br>
+                <input type="file" class="imagen" required><br>
+                <label for="">Piso de la habitacion</label><br>
+                <select name="" id="" required>
+                    <option value="Piso 1">Piso 1</option>
+                    <option value="Piso 2">Piso 2</option>
+                    <option value="Piso 3">Piso 3</option>
+                    <option value="Piso 4">Piso 4</option>
+                </select><br>
+                <label for="">Tipo de habitacion</label><br>
+                <select name="roomType" id="roomType" required>
+                    <option value="lujo">Habitación de lujo</option>
+                    <option value="doble">Habitación doble</option>
+                    <option value="estandar">Habitación estándar</option>
+                </select><br>
+                <label for="">Agregue una Descripcion</label><br>
+                <textarea name="" id="" required></textarea><br>
+                <button type="button">Cancelar</button>
+                <button type="submit">Siguiente</button>
+        </form>
+    </div>
+</div>
+    <script src="modal.js"></script>
+</body>
+</html>
